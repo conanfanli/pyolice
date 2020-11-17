@@ -36,6 +36,6 @@ jobs:
         PYPI_TOKEN: ${{ secrets.pypi_token }}
       run: |
           echo -e "username = __token__" >> .pypirc
-          echo -e "password = $PYPI_TOKEN" >> .pypirc
+          # echo -e "password = $PYPI_TOKEN" >> .pypirc
       - run:
           command: make publish
