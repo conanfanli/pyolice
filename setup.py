@@ -5,7 +5,7 @@ from os import path
 
 from setuptools import find_packages, setup
 
-from pyolic import VERSION
+from pyolice import VERSION
 
 here = path.abspath(path.dirname(__file__))
 
@@ -14,11 +14,11 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="pyolic",
+    name="pyolice",
     version=VERSION,
     description="Python type code generator",
     long_description=long_description,
-    url="https://github.com/conanfanli/pyolic",
+    url="https://github.com/conanfanli/pyolice",
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
     python_requires="~=3.8",
