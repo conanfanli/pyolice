@@ -32,8 +32,10 @@ jobs:
       #   user: __token__
       #   password: ${{ secrets.pypi_token }}
       #   verbose: true
+      env:
+        PYPI_TOKEN: ${{ secrets.pypi_token }}
       run: |
           echo -e "username = __token__" >> .pypirc
-          echo -e "password = ${{ secrets.pypi_token }}" >> .pypirc
+          echo -e "password = ${PYPI_TOKEN}" >> .pypirc
       - run:
           command: make publish
