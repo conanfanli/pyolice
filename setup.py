@@ -32,4 +32,7 @@ setup(
     author="Conan Li",
     author_email="conanlics@gmail.com",
     license="MIT",
+    entry_points={
+        "console_scripts": ["pyolice=pyolice.command_line:main"],
+    },
 )
