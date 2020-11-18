@@ -1,16 +1,20 @@
 
-
-.. image:: https://circleci.com/gh/conanfanli/pyolice.svg?style=svg
-   :target: https://circleci.com/gh/conanfanli/pyolice
-   :alt: CircleCI
-
-
-.. image:: https://codecov.io/gh/conanfanli/pyolice/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/conanfanli/pyolice
-   :alt: codecov
-
-
 pyolice
 =======
 
 Python code police: check source code for crimes
+
+Usage
+=====
+
+.. code-block::
+
+   pyolice -h
+   usage: pyolice [-h] [-c CONFIG_FILE] [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+
+   optional arguments:
+     -h, --help            show this help message and exit
+     -c CONFIG_FILE, --config CONFIG_FILE
+                           Provide configuration file.
+     --log {DEBUG,INFO,WARNING,ERROR,CRITICAL}
+                           Provide logging level. Example --log debug', default='WARNING'
