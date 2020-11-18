@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 import subprocess
-import sys
 from typing import List
 
 
@@ -33,7 +32,10 @@ violations = [
         pattern="UserEmail.objects.get",
         directory="apps",
         message="Should not directly ORM to get UserEmail. Use UserEmailService.get_by_email instead.",
-        excluded_files=["apps/wave_auth/backends.py", "apps/wave_auth/tests/models_tests.py"],
+        excluded_files=[
+            "apps/wave_auth/backends.py",
+            "apps/wave_auth/tests/models_tests.py",
+        ],
     ),
     Violation(
         pattern="Site.objects",
@@ -47,13 +49,21 @@ violations = [
 def check_violations() -> bool:
     success = True
     for violation in violations:
-        result = subprocess.run(f"ag {violation.pattern} {violation.directory} -l", shell=True, capture_output=True)
+        result = subprocess.run(
+            f"ag {violation.pattern} {violation.directory} -l",
+            shell=True,
+            capture_output=True,
+        )
         # print(result.stdout, result.stderr)
         if result.returncode == 0:
             matched_files = result.stdout.decode("utf-8").strip().split("\n")
-            violation_files = sorted(set(matched_files) - set(violation.excluded_files or []))
+            violation_files = sorted(
+                set(matched_files) - set(violation.excluded_files or [])
+            )
             if violation_files:
-                print(f"Found violation pattern '{violation.pattern}' in {violation_files}")
+                print(
+                    f"Found violation pattern '{violation.pattern}' in {violation_files}"
+                )
                 print_warning_message(violation.message)
                 print()
                 success = False
@@ -61,6 +71,6 @@ def check_violations() -> bool:
     return success
 
 
-if __name__ == "__main__":
+def main() -> int:
     success = check_violations()
-    sys.exit(0 if success else 1)
+    return 0 if success else 1
