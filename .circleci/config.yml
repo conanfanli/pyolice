@@ -1,0 +1,44 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/python:3.8.1
+    steps:
+      - checkout
+      - run:
+          command: sudo apt-get install ripgrep
+      - run:
+          command: pip install -r dev-requirements.txt
+      - run:
+          command: make coverage
+      - run:
+          name: Upload coverage to codecov
+          command: codecov -t $CODECOV_TOKEN
+  publish:
+    docker:
+      - image: circleci/python:3.8.1
+    steps:
+      - checkout
+      - run:
+          bash ./check_version_bump.sh
+      - run:
+          name: Input credential in .pypirc file
+          command: |
+            echo -e "username = $PYPI_USERNAME" >> .pypirc
+            echo -e "password = $PYPI_PASSWORD" >> .pypirc
+            pip install twine
+      - run:
+          command: make publish
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - test
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
