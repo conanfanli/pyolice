@@ -13,4 +13,3 @@ optional arguments:
                         Provide logging level. Example --log debug', default='WARNING'
 
 ```
-
