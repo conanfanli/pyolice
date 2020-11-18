@@ -26,6 +26,7 @@ def parse_command_line() -> CommandLineOptions:
         help="Provide logging level. Example --log debug', default='WARNING'",
     )
     options = parser.parse_args()
+
     return CommandLineOptions(
         config_file=options.config_file, loglevel=options.loglevel
     )

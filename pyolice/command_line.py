@@ -5,7 +5,7 @@ from typing import List, Optional
 
 import yaml
 
-from .command_parser import parse_command_line
+from .command_parser import CommandLineOptions, parse_command_line
 
 
 def print_warning_message(message: str) -> None:
@@ -51,9 +51,14 @@ def detect_crimes(crimes: List[Crime]) -> bool:
 
 def main() -> int:
     options = parse_command_line()
+    # Config logging
+    logging.basicConfig(level=getattr(logging, options.loglevel.upper()))
 
+    # Load config file
     crimes = load_crimes(options.config_file)
-    logging.info(f"Defined crimes: {crimes}")
+    logging.debug(f"Defined crimes: {crimes}")
+
+    # Execute
     success = detect_crimes(crimes)
     return 0 if success else 1
 
