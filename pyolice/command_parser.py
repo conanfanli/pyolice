@@ -14,8 +14,8 @@ def parse_command_line() -> CommandLineOptions:
         "-c",
         "--config",
         dest="config_file",
-        default="./.pyolice.yml",
-        help="Provide configuration file.",
+        default=".pyolice.yml",
+        help="Provide configuration file. Default to .pyolice.yml",
     )
     # Log level
     parser.add_argument(
