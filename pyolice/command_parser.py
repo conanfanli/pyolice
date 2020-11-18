@@ -8,7 +8,7 @@ class CommandLineOptions:
     loglevel: str
 
 
-def parse_command_line() -> CommandLineOptions:
+def get_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-c",
@@ -25,6 +25,11 @@ def parse_command_line() -> CommandLineOptions:
         choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
         help="Provide logging level. Example --log debug', default='WARNING'",
     )
+    return parser
+
+
+def parse_command_line() -> CommandLineOptions:
+    parser = get_parser()
     options = parser.parse_args()
 
     return CommandLineOptions(

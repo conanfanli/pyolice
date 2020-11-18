@@ -9,12 +9,11 @@ Usage
 
 .. code-block::
 
-   pyolice -h
-   usage: pyolice [-h] [-c CONFIG_FILE] [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+   usage: render_readme.py [-h] [-c CONFIG_FILE] [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
 
    optional arguments:
      -h, --help            show this help message and exit
      -c CONFIG_FILE, --config CONFIG_FILE
-                           Provide configuration file.
+                           Provide configuration file. Default to .pyolice.yml
      --log {DEBUG,INFO,WARNING,ERROR,CRITICAL}
                            Provide logging level. Example --log debug', default='WARNING'
