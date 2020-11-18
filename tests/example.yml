@@ -1,0 +1,4 @@
+crimes:
+  - pattern: apps
+    directory: .
+    message: please do not use the word 'apps'

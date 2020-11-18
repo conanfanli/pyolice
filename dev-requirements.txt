@@ -10,5 +10,6 @@ pip
 ipdb
 isort
 black
+pyyaml
 
 m2r

@@ -22,6 +22,9 @@ setup(
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
     python_requires="~=3.8",
+    install_requires=[
+        "pyyaml",
+    ],
     extras_require={"dev": ["ipython", "mypy"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
