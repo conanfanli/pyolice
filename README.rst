@@ -9,7 +9,8 @@ Usage
 
 .. code-block::
 
-   usage: render_readme.py [-h] [-c CONFIG_FILE] [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+   usage: render_readme.py [-h] [-c CONFIG_FILE]
+                           [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
 
    optional arguments:
      -h, --help            show this help message and exit
