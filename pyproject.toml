@@ -1,19 +1,49 @@
-[tool.black]
-line-lenght = 120
-target-version = ['py38']
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | venv
-  | _build
-  | buck-out
-  | build
-  | migrations
-  | dist
-)/
-'''
+
+[tool.poetry]
+name = "pyolice"
+version = "0.0.4"
+description = "Python code police who finds violations in codebases that match regex."
+authors = ["Conan Li <conanlics@gmail.com>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0"
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.11"
+ipython = "^8.10.0"
+mypy = "^1.0.0"
+twine = "^4.0.2"
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+flake8 = "^6.0.0"
+codecov = "^2.1.12"
+wheel = "^0.38.4"
+pip = "^23.0"
+black = "^23.1.0"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyolice"
+version = "0.0.4"
+authors = [
+  { name="Conan Fan Li", email="conanlics@gmail.com" },
+]
+description = "Python code police who finds violations in codebases that match regex."
+readme = "README.md"
+dependencies = [
+    "pyyaml"
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/conanfanli/pyolice"
+"Bug Tracker" = "https://github.com/conanfanli/pyolic/issues"
