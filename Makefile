@@ -1,3 +1,11 @@
+TAG := pyolice/release:latest
+.PHONY: build
+build:  # Build docker image
+	docker build --tag ${TAG} .
+
+ssh:  ## Shell into docker container
+	@docker run -it --rm -v $(shell pwd):/app ${TAG} bash
+
 .PHONY: clean
 clean:
 	@rm -rf dist pyolice.egg-info

@@ -1,11 +1,12 @@
-FROM python:3.8.6
+FROM python:3.10
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install ripgrep
-RUN mkdir /code
-WORKDIR /code
-COPY dev-requirements.txt .
-RUN pip install -r dev-requirements.txt
-ADD . /code
+RUN apt-get update
+RUN mkdir /app
+WORKDIR /app
+RUN pip install -U poetry
+
+ADD . /app
+RUN poetry install --only main
 
 ENV PYTHONPATH .
