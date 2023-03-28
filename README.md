@@ -3,7 +3,7 @@ Python code police: check source code for crimes
 
 # Usage
 ```
-usage: render_readme.py [-h] [-c CONFIG_FILE]
+usage: pyolice [-h] [-c CONFIG_FILE]
                         [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
 
 optional arguments:
